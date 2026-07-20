@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
         curl \
         nginx \
         unzip \
+        gettext-base \
     # ── Cloudflared ──
     && ARCH=$(uname -m) \
     && if [ "$ARCH" = "x86_64" ]; then \
