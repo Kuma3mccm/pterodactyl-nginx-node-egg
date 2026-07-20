@@ -20,6 +20,10 @@ NGINX_PREFIX="${NGINX_PREFIX:-/home/container}"
 export SERVER_PORT="${SERVER_PORT:-1234}"   # このサーバーの割り当てポート
 export NODE_PORT="${NODE_PORT:-3000}"       # Node 内部ポート
 
+envsubst '$SERVER_PORT $NODE_PORT' \
+  < /home/container/nginx/conf.d/default.conf.template \
+  > /home/container/nginx/conf.d/default.conf
+
 header "[Startup] Rendering Nginx config (SERVER_PORT=${SERVER_PORT}, NODE_PORT=${NODE_PORT})"
 
 # テンプレートから default.conf を生成
