@@ -10,7 +10,7 @@
   "description": "Pterodactyl Nginx + Node Egg using SERVER_PORT for both public and internal Node.js port. Nginx reverse proxies to Node.js on the same port.\r\nFork of earnestangel/pterodactyl-nginx-node-egg.",
   "features": null,
   "docker_images": {
-    "ghcr.io/kuma3mccm/pterodactyl-nginx-node-egg:latest": "ghcr.io/kuma3mccm/pterodactyl-nginx-node-egg:latest"
+    "ghcr.io/kuma3mccm/pterodactyl-nginx-node-egg:main": "ghcr.io/kuma3mccm/pterodactyl-nginx-node-egg:main"
   },
   "file_denylist": [],
   "startup": "./start-modules.sh",
