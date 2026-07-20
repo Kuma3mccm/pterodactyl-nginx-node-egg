@@ -17,8 +17,8 @@ NGINX_CONF="${NGINX_CONF:-/home/container/nginx/nginx.conf}"
 NGINX_PREFIX="${NGINX_PREFIX:-/home/container}"
 
 # ポートのデフォルトを揃える
-export SERVER_PORT="${SERVER_PORT:-1234}"
-export NODE_PORT="${NODE_PORT:-3000}"
+export SERVER_PORT="${SERVER_PORT:-1234}"   # このサーバーの割り当てポート
+export NODE_PORT="${NODE_PORT:-3000}"       # Node 内部ポート
 
 header "[Startup] Rendering Nginx config (SERVER_PORT=${SERVER_PORT}, NODE_PORT=${NODE_PORT})"
 

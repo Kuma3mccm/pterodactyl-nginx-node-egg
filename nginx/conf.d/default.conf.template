@@ -1,6 +1,5 @@
 server {
-    # 外からブラウザで叩くポート（Pterodactyl の割り当てポート）
-    listen       ${SERVER_PORT};
+    listen       ${SERVER_PORT};   # ここは 1234（割り当てポート）
     server_name  "";
 
     access_log /home/container/logs/naccess.log;
@@ -10,31 +9,20 @@ server {
     index index.html index.htm;
     charset utf-8;
 
-    # 不要なログを減らすための設定
     location = /favicon.ico { access_log off; log_not_found off; }
     location = /robots.txt  { access_log off; log_not_found off; }
-
-    # 大きなリクエストを許可
     client_max_body_size 100m;
     client_body_timeout 120s;
     sendfile off;
 
-    # Node.js アプリへのリバースプロキシ
-    # Node は内部ポート NODE_PORT で待ち受ける（例: 3000）
     location / {
-        proxy_pass http://127.0.0.1:${NODE_PORT};
+        proxy_pass http://127.0.0.1:${NODE_PORT};  # 3000
         proxy_set_header Host              $host;
         proxy_set_header X-Real-IP         $remote_addr;
         proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # .git や .ht* への直接アクセス禁止
-    location ~ /\.git {
-        deny all;
-    }
-
-    location ~ /\.ht {
-        deny all;
-    }
+    location ~ /\.git { deny all; }
+    location ~ /\.ht  { deny all; }
 }

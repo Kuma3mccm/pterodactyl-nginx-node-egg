@@ -20,7 +20,7 @@ export NPM_CONFIG_CACHE="/home/container/.npm"
 
 # set default node port (SERVER_PORT と揃える設計の場合)
 export SERVER_PORT="${SERVER_PORT:-1234}"
-export NODE_PORT="${NODE_PORT:-${SERVER_PORT}}"
+export NODE_PORT="${NODE_PORT:-3000}"
 export PORT="${NODE_PORT}"
 
 header "Starting Node module on PORT=${PORT}"
